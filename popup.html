@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8" />
+  <style>
+    body {
+      width: 300px;
+      font-family: system-ui, sans-serif;
+      padding: 14px;
+      background: #111827;
+      color: #f9fafb;
+    }
+    h1 {
+      font-size: 15px;
+      margin: 0 0 4px;
+    }
+    p {
+      font-size: 12px;
+      color: #9ca3af;
+      margin: 0 0 12px;
+    }
+    label {
+      font-size: 11px;
+      color: #9ca3af;
+      display: block;
+      margin-bottom: 4px;
+    }
+    label.check {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      margin-bottom: 12px;
+      cursor: pointer;
+    }
+    label.check input {
+      width: auto;
+      margin: 0;
+    }
+    select, input {
+      width: 100%;
+      box-sizing: border-box;
+      padding: 8px;
+      border-radius: 6px;
+      border: 1px solid #374151;
+      background: #1f2937;
+      color: #f9fafb;
+      font-size: 13px;
+      margin-bottom: 10px;
+    }
+    button {
+      width: 100%;
+      padding: 9px;
+      border: none;
+      border-radius: 6px;
+      background: #2563eb;
+      color: #fff;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    #status {
+      margin-top: 8px;
+      font-size: 12px;
+      color: #34d399;
+      min-height: 14px;
+    }
+    a {
+      color: #60a5fa;
+      font-size: 11px;
+    }
+  </style>
+</head>
+<body>
+  <h1>🛡️ ToS Scanner</h1>
+  <p>Pick an AI provider and paste your own API key. Nothing is shared — each provider's key is stored separately, only on this device.</p>
+
+  <label for="provider">Provider</label>
+  <select id="provider">
+    <option value="gemini">Google Gemini (free tier available)</option>
+    <option value="groq">Groq (free, no card needed)</option>
+    <option value="openai">OpenAI</option>
+    <option value="anthropic">Claude (Anthropic)</option>
+  </select>
+
+  <label for="apiKey">API key</label>
+  <input id="apiKey" type="password" placeholder="Paste your key" />
+
+  <label for="model">Model (optional override)</label>
+  <input id="model" type="text" placeholder="Uses a sensible default if left empty" />
+
+  <label class="check">
+    <input type="checkbox" id="autoScan" />
+    <span>Auto-scan when a terms popup appears</span>
+  </label>
+
+  <button id="save">Save</button>
+  <div id="status"></div>
+
+  <p id="keyLink" style="margin-top:10px;"></p>
+
+  <script src="popup.js"></script>
+</body>
+</html>
